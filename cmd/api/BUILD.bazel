@@ -23,4 +23,13 @@ container_image(
     base = "@alpine_linux_amd64//image",
     entrypoint = ["/api"],
     files = [":api"],
+    repository = "speak2jc"
+)
+
+container_push(
+    name = "image-push",
+    format = "Docker",
+    image = ":image",
+    registry = "index.docker.io",
+    repository = "speak2jc/cmd-api",
 )
